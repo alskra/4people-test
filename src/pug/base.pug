@@ -1,0 +1,53 @@
+include /pug/global
+
+include /components/content/content
+include /components/btn/btn
+
+block variables
+  -
+    let title = '4people-test';
+    let description = '';
+    let favicon = false;
+    let og = false;
+    let ym = false;
+
+    let bodyClass = [];
+    let appClass = [];
+    let appAttrs = {
+      'x-data': 'app',
+      'x-bind': 'app',
+    };
+
+block document
+  doctype html
+  html(
+    lang="ru"
+    prefix=og ? 'og: https://ogp.me/ns#' : null
+  )
+    head
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+      title= title
+      meta(property="description" content=description)
+
+      if favicon
+        include /pug/chunks/favicon
+
+      if og
+        include /pug/chunks/og
+
+      if ym
+        include /pug/chunks/ym
+
+      style.
+        [hidden],
+        [x-cloak] {
+          display: none !important;
+        }
+
+      block head-end
+
+    body(class=bodyClass)
+      block body-start
+      .app(class=appClass)&attributes(appAttrs)
+        block app

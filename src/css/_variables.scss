@@ -1,0 +1,63 @@
+// Layout
+$xs: 320px;
+$sm: 576px;
+$md: 768px;
+$lg: 1025px;
+$xl: 1200px; // default
+$xxl: 1920px;
+$xxxl: 2560px;
+$grid-breakpoints: (
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  // 2xl: $xxl,
+  // 3xl: $xxxl
+);
+$grid-count: 12;
+
+// Named Colors
+$color-black: #000;
+$color-white: #fff;
+
+// Colors & Gradients
+$color-text: $color-black;
+$color-bg: $color-white;
+$color-heading: $color-text;
+$color-primary: #0d6efd;
+$color-primary-hover: darken($color-primary, 15);
+$color-secondary: #6c757d;
+$color-success: #198754;
+$color-danger: #dc3545;
+$color-warning: #ffc107;
+$color-info: #0dcaf0;
+$color-light: #f8f9fa;
+$color-dark: #212529;
+$color-disabled: $color-light; // ?
+$colors: (
+  color-text: $color-text,
+  color-bg: $color-bg,
+  color-heading: $color-heading,
+  color-primary: $color-primary,
+  color-primary-hover: $color-primary-hover,
+  color-secondary: $color-secondary,
+  color-success: $color-success,
+  color-danger: $color-danger,
+  color-warning: $color-warning,
+  color-info: $color-info,
+  color-light: $color-light,
+  color-dark: $color-dark,
+  color-disabled: $color-disabled,
+);
+$gradients: (
+);
+
+// Utilities
+$spacer: 4rem;
+$spacers: 0, px, auto, p,
+  0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4,
+  5, 6, 7, 8, 9, 10, 11, 12,
+  14, 16, 18, 20,
+  24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64,
+  72, 80,
+  96;
