@@ -1,5 +1,5 @@
 import Alpine from 'alpinejs';
-import '@components/scene/scene';
+import '@components/_examples/scene/scene';
 import './section.scss';
 
 Alpine.data('section', () => ({

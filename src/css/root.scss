@@ -39,13 +39,13 @@
 
 // Typography
 :root {
-  --font-family: var(--font-family-inter);
+  --font-family: var(--font-family-lato);
   --font-weight: 400;
   --font-size: 16rem;
   --line-height: 2;
   --color: var(--color-text);
   --bg: var(--color-bg);
-  --heading-font-family: var(--font-family-inter);
+  --heading-font-family: var(--font-family);
   --heading-1-font-size: 40rem;
   --heading-2-font-size: 36rem;
   --heading-3-font-size: 32rem;
@@ -53,16 +53,13 @@
   --heading-5-font-size: 24rem;
   --heading-6-font-size: 20rem;
   --heading-font-weight: 700;
-  --heading-1-font-weight: 900;
-  --heading-2-font-weight: 900;
   --heading-line-height: 1.2;
   --heading-color: var(--color-heading);
   --heading-interval-top: 60rem;
   --heading-interval-bottom: 48rem;
   --paragraph-interval: calc(var(--line-height) * 1em);
-  --link-color: var(--color);
+  --link-color: var(--color-primary);
   --link-text-decoration: none;
-
   // --link-hover-color: var(--color);
   // --link-hover-text-decoration: none;
   --block-interval: 48rem;
