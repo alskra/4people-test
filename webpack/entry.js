@@ -4,7 +4,7 @@ const HTMLPlugin = require('html-webpack-plugin');
 const paths = require('./utils/paths');
 
 const pages = fs.readdirSync(paths.pages);
-const chunks = fs.readdirSync(path.join(paths.pug, 'chunks')).filter((chunk) => path.extname(chunk) === '.pug');
+const data = fs.readdirSync(path.join(paths.pug, 'data')).filter((item) => path.extname(item) === '.pug');
 const entry = {};
 
 // pages.forEach((page) => {
@@ -23,9 +23,9 @@ const htmlPluginEntries = pages.map((page) => new HTMLPlugin({
   minify: false,
 }));
 
-const htmlPluginChunks = chunks.map((chunk) => new HTMLPlugin({
-  template: path.join(paths.pug, `chunks/${chunk}`),
-  filename: `data/${path.basename(chunk, '.pug')}.html`,
+const htmlPluginChunks = data.map((item) => new HTMLPlugin({
+  template: path.join(paths.pug, `data/${item}`),
+  filename: `data/${path.basename(item, '.pug')}.html`,
   inject: false,
   minify: false,
 }));
