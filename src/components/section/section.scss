@@ -229,7 +229,7 @@
 
   &::before {
     position: absolute;
-    top: calc(-1 * var(--heading-interval-top));
+    top: calc(-1 * var(--h-spacing-top));
     bottom: calc(-1 * var(--section--padding-bottom));
     left: var(--col-size);
     z-index: 1;
@@ -253,7 +253,7 @@
 .section__btn-sign {
   align-self: flex-end;
   width: 276rem;
-  margin-top: var(--heading-interval-top);
+  margin-top: var(--h-spacing-top);
 
   @media (--max-md) {
     align-self: end;

@@ -107,8 +107,8 @@
   @media (--min-md) {
     position: sticky;
     top: 0;
-    padding-top: var(--heading-interval-top);
-    margin-top: calc(-1 * var(--heading-interval-top));
+    padding-top: var(--h-spacing-top);
+    margin-top: calc(-1 * var(--h-spacing-top));
 
     &--header {
       background: linear-gradient(to bottom, $color-bg calc(100% - 32rem), rgba($color-bg, 0));

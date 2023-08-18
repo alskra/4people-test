@@ -23,10 +23,10 @@
 }
 
 .collapsible__title {
-  padding: calc((24rem - var(--heading-line-height) * 1em) / 2) 0;
+  padding: calc((24rem - var(--h-line-height) * 1em) / 2) 0;
   font-size: 16rem;
   font-weight: 600;
-  line-height: var(--heading-line-height);
+  line-height: var(--h-line-height);
 }
 
 .collapsible__icon {

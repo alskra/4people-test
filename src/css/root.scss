@@ -1,4 +1,4 @@
-// stylelint-disable no-duplicate-selectors
+// stylelint-disable no-duplicate-selectors, custom-property-empty-line-before
 // Responsive Sizes
 :root {
   // font-size: calc(0.35 / strip-unit($xl) * 100vw + 0.65px);
@@ -40,38 +40,74 @@
 // Typography
 :root {
   --font-family: var(--font-family-lato);
-  --font-weight: 400;
   --font-size: 16rem;
-  --line-height: 2;
+  --font-weight: 400;
+  --line-height: 1.5;
   --color: var(--color-text);
   --bg: var(--color-bg);
-  --heading-font-family: var(--font-family);
-  --heading-1-font-size: 40rem;
-  --heading-2-font-size: 36rem;
-  --heading-3-font-size: 32rem;
-  --heading-4-font-size: 28rem;
-  --heading-5-font-size: 24rem;
-  --heading-6-font-size: 20rem;
-  --heading-font-weight: 700;
-  --heading-line-height: 1.2;
-  --heading-color: var(--color-heading);
-  --heading-interval-top: 60rem;
-  --heading-interval-bottom: 48rem;
-  --paragraph-interval: calc(var(--line-height) * 1em);
+
+  --h-font-family: var(--font-family);
+  --h-font-size: var(--font-size);
+  --h-font-weight: 700;
+  --h-line-height: 1.2;
+  --h-color: var(--color-heading);
+
+  --h1-font-family: var(--h-font-family);
+  --h1-font-size: 40rem;
+  --h1-font-weight: var(--h-font-weight);
+  --h1-line-height: var(--h-line-height);
+  --h1-color: var(--h-color);
+
+  --h2-font-family: var(--h-font-family);
+  --h2-font-size: 36rem;
+  --h2-font-weight: var(--h-font-weight);
+  --h2-line-height: var(--h-line-height);
+  --h2-color: var(--h-color);
+
+  --h3-font-family: var(--h-font-family);
+  --h3-font-size: 32rem;
+  --h3-font-weight: var(--h-font-weight);
+  --h3-line-height: var(--h-line-height);
+  --h3-color: var(--h-color);
+
+  --h4-font-family: var(--h-font-family);
+  --h4-font-size: 28rem;
+  --h4-font-weight: var(--h-font-weight);
+  --h4-line-height: var(--h-line-height);
+  --h4-color: var(--h-color);
+
+  --h5-font-family: var(--h-font-family);
+  --h5-font-size: 24rem;
+  --h5-font-weight: var(--h-font-weight);
+  --h5-line-height: var(--h-line-height);
+  --h5-color: var(--h-color);
+
+  --h6-font-family: var(--h-font-family);
+  --h6-font-size: 20rem;
+  --h6-font-weight: var(--h-font-weight);
+  --h6-line-height: var(--h-line-height);
+  --h6-color: var(--h-color);
+
+  --h-spacing-top: 60rem;
+  --h-spacing-bottom: 48rem;
+
+  --p-spacing: calc(var(--line-height) * 1em);
+
   --link-color: var(--color-primary);
   --link-text-decoration: underline;
   --link-hover-color: var(--color-primary-hover);
-  --link-hover-text-decoration: underline;
-  --block-interval: 48rem;
+  --link-hover-text-decoration: var(--link-text-decoration);
 }
 
 // Other
 :root {
-  --scroll-behavior: auto;
-  --overscroll-behavior: auto;
   --transition-duration: 0.15s;
   --transition-timing-function: ease-in-out;
   --transition: var(--transition-duration) var(--transition-timing-function);
+
+  --scroll-behavior: auto;
+  --overscroll-behavior: auto;
+
   --selection-color: #{$color-white};
   --selection-bg: #{rgba($color-primary, 0.75)};
 }

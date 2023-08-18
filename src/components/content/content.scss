@@ -1,22 +1,27 @@
-@custom-selector :--heading :is(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6);
+@custom-selector :--h h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6;
 @custom-selector :--link :any-link:not([href^="tel:"]);
 @custom-selector :--list :is(ul, ol);
 
 .content {
-  --list-indent: #{em(65)};
+  --list-indent: #{em(40)};
   --list-marker-size: #{em(10)};
   --blockquote-font-size: #{em(24)};
+  --block-spacing: 48rem;
 
   font-size: var(--font-size);
   line-height: var(--line-height);
 
-  :--heading {
-    @include margin-nc-y(var(--heading-interval-top), var(--heading-interval-bottom));
+  :--h {
+    &:--not-fc {
+      margin-top: var(--h-spacing-top);
+    }
 
-    margin: 0;
+    &:--not-lc {
+      margin-bottom: var(--h-spacing-bottom);
+    }
   }
 
-  :--heading + * {
+  :--h + * {
     // stylelint-disable-next-line
     margin-top: 0 !important;
   }
@@ -24,20 +29,24 @@
   @for $level from 1 through 6 {
     h#{$level},
     .h#{$level} {
-      font-family: var(--heading-#{$level}-font-family, var(--heading-font-family));
-      font-size: var(--heading-#{$level}-font-size, var(--font-size));
-      font-weight: var(--heading-#{$level}-font-weight, var(--heading-font-weight));
-      line-height: var(--heading-#{$level}-line-height, var(--heading-line-height));
-      color: var(--heading-#{$level}-color, var(--heading-color));
+      font-family: var(--h#{$level}-font-family);
+      font-size: var(--h#{$level}-font-size);
+      font-weight: var(--h#{$level}-font-weight);
+      line-height: var(--h#{$level}-line-height);
+      color: var(--h#{$level}-color);
     }
   }
 
   // stylelint-disable-next-line
   p,
   .p {
-    @include margin-nc-y(var(--paragraph-interval));
+    &:--not-fc {
+      margin-top: var(--p-spacing);
+    }
 
-    margin: 0;
+    &:--not-lc {
+      margin-bottom: var(--p-spacing);
+    }
   }
 
   .p {
@@ -45,70 +54,35 @@
   }
 
   :--link {
-    padding-bottom: 5rem;
     color: var(--link-color);
     text-decoration: var(--link-text-decoration);
-    background:
-      linear-gradient(to right, var(--color-primary), var(--color-primary))
-      no-repeat 0 100% / 100% 2rem;
-    transition: var(--transition-duration) linear;
-    transition-property: color, background-size;
-
-    @include hover {
-      color: var(--link-hover-color, var(--link-color));
-      text-decoration: var(--link-hover-text-decoration, var(--link-text-decoration));
-      background-size: 100% 3rem;
-    }
-  }
-
-  :--link[target="_blank"] {
-    background-size: calc(100% - 18rem) 2rem;
-
-    &::after {
-      display: inline-block;
-      width: 10rem;
-      height: 10rem;
-      margin-left: 8rem;
-      content: "";
-      background: currentcolor;
-      // mask-image: url("~@images/icons/svg/blank.svg");
-      mask-position: center;
-      mask-repeat: no-repeat;
-    }
-
-    @include hover {
-      background-size: calc(100% - 18rem) 3rem;
-    }
   }
 
   :--list {
-    @include margin-nc-y(var(--paragraph-interval));
-
     position: relative;
     padding-left: var(--list-indent);
     margin: 0;
     list-style: none;
-  }
 
-  li {
-    // @include margin-nc-y(var(--paragraph-interval));
-  }
+    &::before {
+      position: absolute;
+      left: 0;
+      width: var(--list-indent);
+      text-align: left;
+    }
 
-  ul {
-    padding-left: 0;
+    &:--not-fc {
+      margin-top: var(--p-spacing);
+    }
 
-    &.without-dash {
-      > li {
-        &::before {
-          content: normal;
-        }
-      }
+    &:--not-lc {
+      margin-bottom: var(--p-spacing);
     }
   }
 
   ul > li {
     &::before {
-      content: "\2014\0020";
+      content: "\2014\00A0";
     }
   }
 
@@ -120,40 +94,35 @@
     counter-increment: ol;
 
     &::before {
-      position: absolute;
-      left: 0;
-      width: var(--list-indent);
-      text-align: left;
       content: counter(ol) ".\00A0";
     }
   }
 
   blockquote {
-    @include margin-nc-y(var(--block-interval));
-
-    position: relative;
-    padding-inline-start: var(--list-indent);
-    margin: 0;
-    font-family: var(--heading-font-family);
+    padding-left: calc(var(--list-indent) - 4rem);
     font-size: var(--blockquote-font-size);
-    font-weight: 500;
-    line-height: 1.2;
+    border-left: 4rem solid $color-light;
 
-    &::before {
-      position: absolute;
-      inset-block-start: 8rem;
-      inset-inline-start: 0;
-      height: min(55rem, 100% - 8rem);
-      content: "";
-      border-inline-start: 1px solid;
+    &:--not-fc {
+      margin-top: var(--block-spacing);
+    }
+
+    &:--not-lc {
+      margin-bottom: var(--block-spacing);
     }
   }
 
   table {
-    @include margin-nc-y(var(--block-interval));
-
     display: block;
     overflow: auto;
+
+    &:--not-fc {
+      margin-top: var(--block-spacing);
+    }
+
+    &:--not-lc {
+      margin-bottom: var(--block-spacing);
+    }
   }
 
   tbody {
@@ -170,7 +139,7 @@
   }
 
   :is(th, td) {
-    padding: calc(0.5 * var(--paragraph-interval)) calc(0.5 * var(--gap-md));
+    padding: calc(0.5 * var(--p-spacing)) calc(0.5 * var(--grid-gutter));
     vertical-align: baseline;
   }
 
@@ -188,23 +157,35 @@
 
   img:not(picture *, figure *),
   picture:not(figure *) {
-    @include margin-nc-y(var(--block-interval));
+    &:--not-fc {
+      margin-top: var(--block-spacing);
+    }
+
+    &:--not-lc {
+      margin-bottom: var(--block-spacing);
+    }
   }
 
   figure {
-    @include margin-nc-y(var(--block-interval));
-
     text-align: center;
+
+    &:--not-fc {
+      margin-top: var(--block-spacing);
+    }
+
+    &:--not-lc {
+      margin-bottom: var(--block-spacing);
+    }
   }
 
   figcaption {
-    margin-top: calc(0.5 * var(--paragraph-interval));
+    margin-top: calc(0.5 * var(--p-spacing));
     font-size: 13rem;
     font-style: italic;
   }
 
   hr {
-    margin: var(--heading-interval-bottom) 0 var(--heading-interval-top);
+    margin: var(--h-spacing-bottom) 0 var(--h-spacing-top);
     border: 0;
     border-top: 1px solid $color-light;
   }

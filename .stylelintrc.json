@@ -9,7 +9,6 @@
     "no-descending-specificity": null,
     "scss/comment-no-empty": null,
     "scss/double-slash-comment-empty-line-before": null,
-    "scss/no-global-function-names": null,
     "order/order": [
       {
         "type": "at-rule",
@@ -67,15 +66,15 @@
       },
       {
         "type": "rule",
-        "selector": "&:first-child"
+        "selector": "&:first-.+"
       },
       {
         "type": "rule",
-        "selector": "&:last-child"
+        "selector": "&:last-.+"
       },
       {
         "type": "rule",
-        "selector": "&:nth-child.+"
+        "selector": "&:nth-.+"
       },
       {
         "type": "rule",
@@ -88,10 +87,6 @@
       {
         "type": "rule",
         "selector": ".+ &"
-      },
-      {
-        "type": "rule",
-        "selector": "&:is.+"
       },
       {
         "type": "rule",

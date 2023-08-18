@@ -5,11 +5,13 @@
 @forward "mixins";
 @use "variables" as *;
 
-// Custom selectors
+// Custom Selectors
 @custom-selector :--invalid .is-invalid;
 @custom-selector :--disabled :is(:disabled, .is-disabled);
+@custom-selector :--not-fc :not(:first-child);
+@custom-selector :--not-lc :not(:last-child);
 
-// Custom media queries
+// Custom Media Queries
 // Styles for hover-devices and IE11
 @custom-media --hover (hover: hover), screen and (-ms-high-contrast: active), (-ms-high-contrast: none);
 
