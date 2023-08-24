@@ -3,7 +3,7 @@ $xs: 320px;
 $sm: 576px;
 $md: 768px;
 $lg: 1025px;
-$xl: 1200px; // default
+$xl: 1280px; // default
 $xxl: 1920px;
 $xxxl: 2560px;
 $grid-breakpoints: (
@@ -19,21 +19,28 @@ $grid-count: 12;
 // Palette
 $color-black: #000;
 $color-white: #fff;
+$color-blue-ribbon: #0d6efd;
+$color-pale-sky: #6c757d;
+$color-genoa: #198754;
+$color-punch: #dc3545;
+$color-amber: #ffc107;
+$color-bright-turquoise: #0dcaf0;
+$color-athens-gray: #f8f9fa;
+$color-shark: #212529;
 
 // Colors & Gradients
 $color-text: $color-black;
 $color-bg: $color-white;
 $color-heading: $color-text;
-$color-primary: #0d6efd;
+$color-primary: $color-blue-ribbon;
 $color-primary-hover: darken($color-primary, 15);
-$color-secondary: #6c757d;
-$color-success: #198754;
-$color-danger: #dc3545;
-$color-warning: #ffc107;
-$color-info: #0dcaf0;
-$color-light: #f8f9fa;
-$color-dark: #212529;
-$color-disabled: $color-light; // ?
+$color-secondary: $color-pale-sky;
+$color-success: $color-genoa;
+$color-danger: $color-punch;
+$color-warning: $color-amber;
+$color-info: $color-bright-turquoise;
+$color-light: $color-athens-gray;
+$color-dark: $color-shark;
 $colors: (
   color-text: $color-text,
   color-bg: $color-bg,
@@ -47,7 +54,6 @@ $colors: (
   color-info: $color-info,
   color-light: $color-light,
   color-dark: $color-dark,
-  color-disabled: $color-disabled,
 );
 $gradients: (
 );
