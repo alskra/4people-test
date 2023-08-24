@@ -1,11 +1,3 @@
-// export const viewport = new Viewport({
-//   sizesProperties: true,
-//   scrollOptions: {
-//     boundaryEl: document.querySelector('.header'),
-//     spy: true,
-//   },
-// });
-
 import ResizeObserver from 'resize-observer-polyfill';
 
 export default class Viewport {
@@ -53,6 +45,7 @@ export default class Viewport {
   constructor({
     vhProperty = true,
     sizesProperties = true,
+    scrollbarWidth = false,
     mutationObserver = false,
   } = {}) {
     if (vhProperty) {
@@ -83,6 +76,10 @@ export default class Viewport {
       this.resizeObserver.observe(this.body);
     }
 
+    if (scrollbarWidth) {
+      this.setScrollbarWidth();
+    }
+
     if (mutationObserver) {
       this.mutationObserver = new MutationObserver((records) => {
         // eslint-disable-next-line no-console
@@ -106,7 +103,5 @@ export default class Viewport {
         characterData: true,
       });
     }
-
-    this.setScrollbarWidth();
   }
 }
