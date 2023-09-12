@@ -7,7 +7,6 @@ module.exports = {
         features: {
           'all-property': false,
           'custom-properties': false,
-          'logical-properties-and-values': { dir: 'ltr' },
           'blank-pseudo-class': false,
           'has-pseudo-class': false,
         },
